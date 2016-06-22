@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="grades">
+ <head>
+    <meta charset="utf-8">
+    <title> student grades </title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+ </head>
+ <body>
+    <main ng-controller = "gradesController">
+      <h1> Student Grades </h1>
+       <input type="text" class="form-control" placeholder="search by id..." ng-model="idfilter">
+       <input type="text" class="form-control" placeholder="search by age..." ng-model="agefilter"> <br><br>
+       <ul ng-repeat="student in studData.studentGrades | filter: idfilter | filter: agefilter"> 
+          <li> name: {{student.name}} </li>
+          <li> id:{{student.id}} </li>
+          <li> grade: {{student.grade}} </li>
+          <li> age: {{student.age}} </li>
+       </ul>
+    </main>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/grades.js"></script>
+ </body>
+ </html>
